@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-
+        View headerView = findViewById(R.id.header);
+        headerView.bringToFront();
         fCard = (ImageView) findViewById(R.id.front_card);
         ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
         animator.start();
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         .load("https://divineapi.com/admin/uploads/daily_tarot/139_2.jpg").placeholder(R.drawable.back_card).resize(320, 550).into(fCard);
                 flipFront(fCard);
                 fCard.bringToFront();
+                headerView.bringToFront();
             }
         });
     }
